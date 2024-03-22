@@ -13,6 +13,12 @@ class APIClient {
   getAll = (config: AxiosRequestConfig) => {
     return axiosInstance.get(this.endpoint, config).then(res => res.data);
   };
+
+  get = (id: string) => {
+    return axiosInstance
+      .get(this.endpoint + '/' + 'alpha?codes=' + id)
+      .then(res => res.data);
+  };
 }
 
 export default APIClient;

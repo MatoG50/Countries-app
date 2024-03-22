@@ -1,5 +1,7 @@
 import { Card, CardBody, Heading, Stack, Text, Image } from '@chakra-ui/react';
-import useCountries, { Country } from '../hooks/useCountries';
+import useCountries from '../hooks/useCountries';
+import { Country } from '../entities/Country';
+import { Link } from 'react-router-dom';
 
 const CountriesCard = () => {
   const { data, isLoading, isError } = useCountries();
@@ -18,23 +20,29 @@ const CountriesCard = () => {
             padding='0'
             borderRadius='lg'
           >
-            <Image src={res.flags.png} alt={res.flags.alt} className='image' />
-            <CardBody backgroundColor='white'>
-              <Stack>
-                <Heading color='black' size='md'>
-                  {res.name.common}
-                </Heading>
-                <Text color='black'>
-                  Population: <span>{res.population}</span>
-                </Text>
-                <Text color='black'>
-                  Region: <span>{res.region}</span>
-                </Text>
-                <Text color='black'>
-                  Capital: <span>{res.capital}</span>
-                </Text>
-              </Stack>
-            </CardBody>
+            <Link to={`/country/${res.cca2}`}>
+              <Image
+                src={res.flags.png}
+                alt={res.flags.alt}
+                className='image'
+              />
+              <CardBody backgroundColor='white'>
+                <Stack>
+                  <Heading color='black' size='md'>
+                    {res.name.common}
+                  </Heading>
+                  <Text color='black'>
+                    Population: <span>{res.population}</span>
+                  </Text>
+                  <Text color='black'>
+                    Region: <span>{res.region}</span>
+                  </Text>
+                  <Text color='black'>
+                    Capital: <span>{res.capital}</span>
+                  </Text>
+                </Stack>
+              </CardBody>
+            </Link>
           </Card>
         ))}
       </div>
