@@ -15,9 +15,7 @@ class APIClient {
   };
 
   get = (id: string) => {
-    return axiosInstance
-      .get(this.endpoint + '/' + 'alpha?codes=' + id)
-      .then(res => res.data);
+    return axiosInstance.get(this.endpoint + id).then(res => res.data);
   };
 }
 

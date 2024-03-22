@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import APIClient from '../services/api-client';
 
-const apiClient = new APIClient('/country');
+const apiClient = new APIClient('/alpha?codes=');
 
 const useCountry = (cca2: string) =>
   useQuery({
