@@ -48,9 +48,10 @@ const CountryDetailPage = () => {
       </Text>
       <div className='border-countries'>
         <Text>Border countries</Text>
-        {data[0].borders.map((border: string) => (
-          <Box key={border}>{border}</Box>
-        ))}
+        {data[0]?.borders &&
+          data[0]?.borders.map((border: string) => (
+            <Box key={border}>{border}</Box>
+          ))}
       </div>
     </>
   );
