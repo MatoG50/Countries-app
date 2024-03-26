@@ -3,16 +3,24 @@ import useCountries from '../hooks/useCountries';
 import { Country } from '../entities/Country';
 import { Link } from 'react-router-dom';
 
-const CountriesCard = () => {
-  const { data, isLoading, isError } = useCountries();
+interface CountriesCardProps {
+  searchQuery: string;
+}
 
+const CountriesCard: React.FC<CountriesCardProps> = ({ searchQuery }) => {
+  const { data, isLoading, isError } = useCountries();
   if (isLoading) return <div style={{ textAlign: 'center' }}>isLoading...</div>;
   if (isError) return <div>Error fetching data</div>;
+
+  // Filter countries
+  const filteredCountries = data?.filter((country: Country) =>
+    country.name.common.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <>
       <div className='cards'>
-        {data?.map((res: Country) => (
+        {filteredCountries?.map((res: Country) => (
           <Card
             key={res.cca2}
             // maxW='sm'

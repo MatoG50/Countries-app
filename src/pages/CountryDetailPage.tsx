@@ -47,7 +47,7 @@ const CountryDetailPage = () => {
         Languages: <span> {Object.values(data[0].languages).join(', ')}</span>
       </Text>
       <div className='border-countries'>
-        <Text>Border countries</Text>
+        {data[0].borders && <Text>Border countries</Text>}
         {data[0].borders &&
           data[0].borders.map((border: string) => (
             <Box key={border}>{border}</Box>
