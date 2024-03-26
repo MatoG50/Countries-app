@@ -1,6 +1,6 @@
 import { Input } from '@chakra-ui/react';
 
-interface SearchCountryProps {
+export interface SearchCountryProps {
   setSearchQuery: (query: string) => void;
 }
 

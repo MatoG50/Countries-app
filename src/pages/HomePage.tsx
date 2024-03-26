@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import CountriesCard from '../components/CountriesCard';
-import SearchBar from '../components/SearchBar';
 import SearchCountry from '../components/SearchCountry';
+import SearchRegion from '../components/SearchRegion';
 
 const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedRegion, setSelectedRegion] = useState('');
+
   return (
     <>
       <SearchCountry setSearchQuery={setSearchQuery} />
-      <SearchBar />
-      <CountriesCard searchQuery={searchQuery} />
+      <SearchRegion setSelectedRegion={setSelectedRegion} />
+      <CountriesCard
+        searchQuery={searchQuery}
+        selectedRegion={selectedRegion}
+      />
     </>
   );
 };
