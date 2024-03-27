@@ -14,18 +14,16 @@ const SearchRegion: React.FC<SearchCountryProps> = ({ setSelectedRegion }) => {
 
   return (
     <>
-      <div className='search-items'>
-        <Select
-          placeholder='Filter by Region'
-          className='select'
-          width='200px'
-          onChange={handleRegionChange}
-        >
-          {regions.map((res: string) => (
-            <option key={res}>{res}</option>
-          ))}
-        </Select>
-      </div>
+      <Select
+        placeholder='Filter by Region'
+        className='select'
+        width='200px'
+        onChange={handleRegionChange}
+      >
+        {regions.map((res: string) => (
+          <option key={res}>{res}</option>
+        ))}
+      </Select>
     </>
   );
 };

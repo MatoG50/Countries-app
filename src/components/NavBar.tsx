@@ -1,13 +1,13 @@
-import { Text } from '@chakra-ui/react';
+import { Container, Text } from '@chakra-ui/react';
 import ColorModeSwitch from './ColorModeSwitch';
 
 const NavBar = () => {
   return (
     <>
-      <div className='header'>
-        <Text>Where in the world?</Text>
+      <Container boxShadow='md' maxW='100%' className='header'>
+        <Text className='htext'>Where in the world?</Text>
         <ColorModeSwitch />
-      </div>
+      </Container>
     </>
   );
 };
