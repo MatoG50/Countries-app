@@ -40,8 +40,25 @@
 
 .search-items {
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-direction: row;
+  width: 80%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .switch {
   cursor: pointer;
+}
+
+/* Media query */
+@media only screen and (max-width: 767px) {
+  /* Styles for small screens */
+  .search-items {
+    flex-wrap: wrap;
+  }
+  .search-items {
+    margin-bottom: 80px;
+    margin-top: 10px;
+    gap: 5px;
+  }
 }

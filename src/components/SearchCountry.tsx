@@ -8,7 +8,7 @@ const SearchCountry: React.FC<SearchCountryProps> = ({ setSearchQuery }) => {
   return (
     <Input
       placeholder='Search for a country'
-      width='33%'
+      width='400px'
       onChange={e => setSearchQuery(e.target.value)}
     />
   );
