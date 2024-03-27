@@ -19,31 +19,31 @@ const CountryDetailPage = () => {
       <Link to='/'>Go Back</Link>
       <Image src={data[0].flags.png} alt={data[0].flags.alt} />
       <Heading> {data[0].name.common}</Heading>
-      <Text color='black'>
+      <Text>
         Native Name: <span>{data[0].name.nativeName.eng?.official}</span>
       </Text>
-      <Text color='black'>
+      <Text>
         Population: <span>{data[0].population}</span>
       </Text>
-      <Text color='black'>
+      <Text>
         Region: <span>{data[0].region}</span>
       </Text>
-      <Text color='black'>
+      <Text>
         Sub Region: <span>{data[0].subregion}</span>
       </Text>
-      <Text color='black'>
+      <Text>
         Capital: <span>{data[0].capital}</span>
       </Text>
-      <Text color='black'>
+      <Text>
         Tope Level Domain: <span>{data[0].demonyms.eng?.m}</span>
       </Text>
-      <Text color='black'>
+      <Text>
         Currencies:{' '}
         <span>
           {data[0].currencies[Object.keys(data[0].currencies)[0]].name}
         </span>
       </Text>
-      <Text color='black'>
+      <Text>
         Languages: <span> {Object.values(data[0].languages).join(', ')}</span>
       </Text>
       <div className='border-countries'>

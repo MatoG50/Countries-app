@@ -61,18 +61,16 @@ const CountriesCard: React.FC<CountriesCardProps> = ({
                 alt={res.flags.alt}
                 className='image'
               />
-              <CardBody backgroundColor='white'>
+              <CardBody>
                 <Stack>
-                  <Heading color='black' size='md'>
-                    {res.name.common}
-                  </Heading>
-                  <Text color='black'>
+                  <Heading size='md'>{res.name.common}</Heading>
+                  <Text>
                     Population: <span>{res.population}</span>
                   </Text>
-                  <Text color='black'>
+                  <Text>
                     Region: <span>{res.region}</span>
                   </Text>
-                  <Text color='black'>
+                  <Text>
                     Capital: <span>{res.capital}</span>
                   </Text>
                 </Stack>

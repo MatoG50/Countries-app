@@ -9,8 +9,10 @@ const HomePage = () => {
 
   return (
     <>
-      <SearchCountry setSearchQuery={setSearchQuery} />
-      <SearchRegion setSelectedRegion={setSelectedRegion} />
+      <div className='search-items'>
+        <SearchCountry setSearchQuery={setSearchQuery} />
+        <SearchRegion setSelectedRegion={setSelectedRegion} />
+      </div>
       <CountriesCard
         searchQuery={searchQuery}
         selectedRegion={selectedRegion}
