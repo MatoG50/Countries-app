@@ -1,13 +1,11 @@
 import { Select } from '@chakra-ui/react';
-import useCountries from '../hooks/useCountries';
-import { Country } from '../entities/Country';
 
 export interface SearchCountryProps {
   setSelectedRegion: (query: string) => void;
 }
 
 const SearchRegion: React.FC<SearchCountryProps> = ({ setSelectedRegion }) => {
-  const { data } = useCountries();
+  const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 
   const handleRegionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedRegion = event.target.value;
@@ -22,8 +20,8 @@ const SearchRegion: React.FC<SearchCountryProps> = ({ setSelectedRegion }) => {
           width='14%'
           onChange={handleRegionChange}
         >
-          {data?.map((res: Country) => (
-            <option key={res.cca2}>{res.region}</option>
+          {regions.map((res: string) => (
+            <option key={res}>{res}</option>
           ))}
         </Select>
       </div>
