@@ -44,6 +44,38 @@
   cursor: pointer;
 }
 
+/* DETAILS PAGE */
+.main-container {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.text-details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.imgDetail,
+.detailCard {
+  height: 340px;
+  width: 500px;
+  margin-right: 50px;
+}
+.link {
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+.detail-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.curr-details {
+  margin-top: 40px;
+}
+.border {
+  margin-top: 40px;
+}
 /* Media query */
 @media only screen and (max-width: 767px) {
   /* Styles for small screens */
