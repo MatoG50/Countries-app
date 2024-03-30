@@ -1,4 +1,12 @@
-import { Card, CardBody, Heading, Stack, Text, Image } from '@chakra-ui/react';
+import {
+  Card,
+  CardBody,
+  Heading,
+  Stack,
+  Text,
+  Image,
+  Flex,
+} from '@chakra-ui/react';
 import useCountries from '../hooks/useCountries';
 import { Country } from '../entities/Country';
 import { Link } from 'react-router-dom';
@@ -64,15 +72,18 @@ const CountriesCard: React.FC<CountriesCardProps> = ({
               <CardBody>
                 <Stack>
                   <Heading size='md'>{res.name.common}</Heading>
-                  <Text>
-                    Population: <span>{res.population}</span>
-                  </Text>
-                  <Text>
-                    Region: <span>{res.region}</span>
-                  </Text>
-                  <Text>
-                    Capital: <span>{res.capital}</span>
-                  </Text>
+                  <Flex alignItems='baseline'>
+                    <Text fontWeight='bold'>Population:</Text>
+                    <Text ml='2'>{res.population}</Text>
+                  </Flex>
+                  <Flex alignItems='baseline'>
+                    <Text fontWeight='bold'>Region:</Text>
+                    <Text ml='2'>{res.region}</Text>
+                  </Flex>
+                  <Flex alignItems='baseline'>
+                    <Text fontWeight='bold'>Capital:</Text>
+                    <Text ml='2'>{res.capital}</Text>
+                  </Flex>
                 </Stack>
               </CardBody>
             </Link>

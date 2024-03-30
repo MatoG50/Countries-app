@@ -1,6 +1,14 @@
 import { Link, useParams } from 'react-router-dom';
 import useCountry from '../hooks/useCountry';
-import { Image, Heading, Text, Box, Card, Button } from '@chakra-ui/react';
+import {
+  Image,
+  Heading,
+  Text,
+  Box,
+  Card,
+  Button,
+  Flex,
+} from '@chakra-ui/react';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 
 const CountryDetailPage = () => {
@@ -37,66 +45,80 @@ const CountryDetailPage = () => {
             <Heading className='heading'> {data[0].name.common}</Heading>
             <div className='side-details'>
               <div className='name-details'>
-                <Text>
-                  Native Name:{' '}
-                  <span>{data[0].name.nativeName.eng?.official}</span>
-                </Text>
-                <Text>
-                  Population: <span>{data[0].population}</span>
-                </Text>
-                <Text>
-                  Region: <span>{data[0].region}</span>
-                </Text>
-                <Text>
-                  Sub Region: <span>{data[0].subregion}</span>
-                </Text>
-                <Text>
-                  Capital: <span>{data[0].capital}</span>
-                </Text>
+                <Flex alignItems='baseline'>
+                  <Text fontWeight='bold'>Native Name:</Text>
+                  <Text ml='2'>
+                    {
+                      data[0].name.nativeName[
+                        Object.keys(data[0].name.nativeName)[0]
+                      ].common
+                    }
+                  </Text>
+                </Flex>
+                <Flex alignItems='baseline'>
+                  <Text fontWeight='bold'>Population:</Text>
+                  <Text ml='2'>{data[0].population}</Text>
+                </Flex>
+                <Flex alignItems='baseline'>
+                  <Text fontWeight='bold'>Region:</Text>
+                  <Text ml='2'>{data[0].region}</Text>
+                </Flex>
+                <Flex alignItems='baseline'>
+                  <Text fontWeight='bold'>Sub Region:</Text>
+                  <Text ml='2'>{data[0].subregion}</Text>
+                </Flex>
+                <Flex alignItems='baseline'>
+                  <Text fontWeight='bold'>Capital:</Text>
+                  <Text ml='2'>{data[0].capital}</Text>
+                </Flex>
               </div>
               <div className='curr-details'>
-                {' '}
-                <Text>
-                  Tope Level Domain: <span>{data[0].demonyms.eng?.m}</span>
-                </Text>
-                <Text>
-                  Currencies:{' '}
-                  <span>
+                <Flex alignItems='baseline'>
+                  <Text fontWeight='bold'>Top Level Domain:</Text>
+                  <Text ml='2'>{data[0].demonyms.eng?.m}</Text>
+                </Flex>
+                <Flex alignItems='baseline'>
+                  <Text fontWeight='bold'>Currencies:</Text>
+                  <Text ml='2'>
                     {
                       data[0].currencies[Object.keys(data[0].currencies)[0]]
                         .name
                     }
-                  </span>
-                </Text>
-                <Text>
-                  Languages:{' '}
-                  <span> {Object.values(data[0].languages).join(', ')}</span>
-                </Text>
+                  </Text>
+                </Flex>
+                <Flex alignItems='baseline'>
+                  <Text fontWeight='bold'>Languages:</Text>
+                  <Text ml='2'>
+                    {Object.values(data[0].languages).join(', ')}
+                  </Text>
+                </Flex>
               </div>
             </div>
-          </div>
-        </div>
-        <div className='border'>
-          {data[0].borders && (
-            <Text className='b-country'>Border countries: </Text>
-          )}
-          <div className='stack'>
-            {data[0].borders &&
-              data[0].borders.map((border: string) => (
-                <Box
-                  borderRadius='md'
-                  key={border}
-                  boxShadow='md'
-                  w='78px'
-                  h='36px'
-                  paddingTop='5px'
-                  paddingBottom='5px'
-                  paddingLeft='20px'
-                  paddingRight='20px'
-                >
-                  {border}
-                </Box>
-              ))}
+            <Flex>
+              {data[0].borders && (
+                <Text className='b-country' fontWeight='bold'>
+                  Border countries:{' '}
+                </Text>
+              )}
+              <Flex ml='4' flexWrap='wrap'>
+                {data[0].borders &&
+                  data[0].borders.map((border: string) => (
+                    <Box
+                      borderRadius='md'
+                      key={border}
+                      boxShadow='md'
+                      w='78px'
+                      h='36px'
+                      paddingTop='5px'
+                      paddingBottom='5px'
+                      paddingLeft='20px'
+                      paddingRight='20px'
+                    >
+                      {border}
+                    </Box>
+                  ))}
+              </Flex>
+            </Flex>
           </div>
         </div>
       </div>
