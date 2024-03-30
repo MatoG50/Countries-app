@@ -26,6 +26,7 @@ const CountryDetailPage = () => {
           padding='0'
           marginRight='30px'
           marginTop='96px'
+          marginBottom='20px'
           width={{ base: '100%', md: '300px', lg: '500px' }}
           height={{ base: '152px', md: '240px', lg: '350px' }}
         />
