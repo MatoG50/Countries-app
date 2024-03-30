@@ -183,7 +183,8 @@ const CountryDetailPage = () => {
                       fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
                       key={border}
                       boxShadow='md'
-                      w='78px'
+                      textAlign='center'
+                      w='90px'
                       h='36px'
                       paddingTop='5px'
                       paddingBottom='5px'

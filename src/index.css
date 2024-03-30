@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr; /* Equal columns */
   gap: 20px; /* Space between columns */
+  margin-bottom: 20px;
 }
 .left-container {
   display: flex;
