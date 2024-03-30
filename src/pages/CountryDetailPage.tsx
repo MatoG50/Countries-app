@@ -18,29 +18,24 @@ const CountryDetailPage = () => {
 
   if (isLoading) {
     return (
-      <Flex
-        flexDirection={{
-          base: 'column',
-          sm: 'column',
-          md: 'row',
-          lg: 'row',
-        }}
-      >
+      <div className='column'>
         <Skeleton
           padding='0'
           marginRight='30px'
+          marginTop='96px'
           width={{ base: '100%', md: '300px', lg: '500px' }}
           height={{ base: '152px', md: '240px', lg: '350px' }}
         />
         <SkeletonText
-          width='50%'
+          width={{ base: '80%', md: '335px', lg: '638px' }}
           mt='2'
           noOfLines={10}
           spacing='5'
           skeletonHeight='2'
-          marginTop='20px'
+          marginTop='auto'
+          marginBottom='auto'
         />
-      </Flex>
+      </div>
     );
   }
 
