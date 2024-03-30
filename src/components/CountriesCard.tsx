@@ -11,6 +11,7 @@ import useCountries from '../hooks/useCountries';
 import { Country } from '../entities/Country';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import SkeletonGrid from './SkeletonGrid';
 
 interface CountriesCardProps {
   searchQuery: string;
@@ -49,7 +50,7 @@ const CountriesCard: React.FC<CountriesCardProps> = ({
     }
   }, [data, isLoading, isError, searchQuery, selectedRegion]);
 
-  if (isLoading) return <div style={{ textAlign: 'center' }}>isLoading...</div>;
+  if (isLoading) return <SkeletonGrid />;
   if (isError) return <div>Error fetching data</div>;
 
   return (
@@ -77,8 +78,8 @@ const CountriesCard: React.FC<CountriesCardProps> = ({
           >
             <Link to={`/country/${res.cca2}`}>
               <Image
-                height='160px'
                 width='288px'
+                height='160px'
                 src={res.flags.png}
                 alt={res.flags.alt}
               />

@@ -1,6 +1,15 @@
 import { Link, useParams } from 'react-router-dom';
 import useCountry from '../hooks/useCountry';
-import { Image, Heading, Text, Box, Card, Flex } from '@chakra-ui/react';
+import {
+  Image,
+  Heading,
+  Text,
+  Box,
+  Card,
+  Flex,
+  Skeleton,
+  SkeletonText,
+} from '@chakra-ui/react';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 
 const CountryDetailPage = () => {
@@ -8,7 +17,31 @@ const CountryDetailPage = () => {
   const { data, isLoading, isError } = useCountry(cca2!);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <Flex
+        flexDirection={{
+          base: 'column',
+          sm: 'column',
+          md: 'row',
+          lg: 'row',
+        }}
+      >
+        <Skeleton
+          padding='0'
+          marginRight='30px'
+          width={{ base: '100%', md: '300px', lg: '500px' }}
+          height={{ base: '152px', md: '240px', lg: '350px' }}
+        />
+        <SkeletonText
+          width='50%'
+          mt='2'
+          noOfLines={10}
+          spacing='5'
+          skeletonHeight='2'
+          marginTop='20px'
+        />
+      </Flex>
+    );
   }
 
   if (isError || !data) {
@@ -39,12 +72,12 @@ const CountryDetailPage = () => {
             <Card
               padding='0'
               marginRight='30px'
-              width={{ base: '100%', md: '350px', lg: '500px' }}
-              height={{ base: 'auto', md: '240px', lg: '350px' }}
+              width={{ base: '100%', md: '300px', lg: '500px' }}
+              height={{ base: '152px', md: '240px', lg: '350px' }}
             >
               <Image
-                width={{ base: '100%', md: '350px', lg: '500px' }}
-                height={{ base: 'auto', md: '240px', lg: '350px' }}
+                width={{ base: '100%', md: '300px', lg: '500px' }}
+                height={{ base: '152px', md: '240px', lg: '350px' }}
                 borderRadius='md'
                 src={data[0].flags.png}
                 alt={data[0].flags.alt}
@@ -52,13 +85,20 @@ const CountryDetailPage = () => {
             </Card>{' '}
           </div>
           <div className='right-side'>
-            <Heading className='txt' marginBottom='40px'>
+            <Heading
+              className='txt'
+              marginBottom='40px'
+              fontSize={{ base: 'lg', md: 'xl' }}
+            >
               {' '}
               {data[0].name.common}
             </Heading>
             <div className='left-container'>
               <div className='left-sideName'>
-                <Flex alignItems='baseline'>
+                <Flex
+                  alignItems='baseline'
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
+                >
                   <Text fontWeight='bold'>Native Name:</Text>
                   <Text ml='2'>
                     {
@@ -68,29 +108,47 @@ const CountryDetailPage = () => {
                     }
                   </Text>
                 </Flex>
-                <Flex alignItems='baseline'>
+                <Flex
+                  alignItems='baseline'
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
+                >
                   <Text fontWeight='bold'>Population:</Text>
                   <Text ml='2'>{data[0].population}</Text>
                 </Flex>
-                <Flex alignItems='baseline'>
+                <Flex
+                  alignItems='baseline'
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
+                >
                   <Text fontWeight='bold'>Region:</Text>
                   <Text ml='2'>{data[0].region}</Text>
                 </Flex>
-                <Flex alignItems='baseline'>
+                <Flex
+                  alignItems='baseline'
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
+                >
                   <Text fontWeight='bold'>Sub Region:</Text>
                   <Text ml='2'>{data[0].subregion}</Text>
                 </Flex>
-                <Flex alignItems='baseline'>
+                <Flex
+                  alignItems='baseline'
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
+                >
                   <Text fontWeight='bold'>Capital:</Text>
                   <Text ml='2'>{data[0].capital}</Text>
                 </Flex>
               </div>
               <div className='right-sideName'>
-                <Flex alignItems='baseline'>
+                <Flex
+                  alignItems='baseline'
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
+                >
                   <Text fontWeight='bold'>Top Level Domain:</Text>
                   <Text ml='2'>{data[0].demonyms.eng?.m}</Text>
                 </Flex>
-                <Flex alignItems='baseline'>
+                <Flex
+                  alignItems='baseline'
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
+                >
                   <Text fontWeight='bold'>Currencies:</Text>
                   <Text ml='2'>
                     {
@@ -99,7 +157,10 @@ const CountryDetailPage = () => {
                     }
                   </Text>
                 </Flex>
-                <Flex alignItems='baseline'>
+                <Flex
+                  alignItems='baseline'
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
+                >
                   <Text fontWeight='bold'>Languages:</Text>
                   <Text ml='2'>
                     {Object.values(data[0].languages).join(', ')}
@@ -108,7 +169,10 @@ const CountryDetailPage = () => {
               </div>
             </div>
 
-            <Flex marginTop='40px'>
+            <Flex
+              marginTop='40px'
+              fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
+            >
               {data[0].borders && (
                 <Text fontWeight='bold'>Border countries: </Text>
               )}
@@ -117,6 +181,7 @@ const CountryDetailPage = () => {
                   data[0].borders.map((border: string) => (
                     <Box
                       borderRadius='md'
+                      fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
                       key={border}
                       boxShadow='md'
                       w='78px'
