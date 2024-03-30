@@ -1,4 +1,5 @@
-import { Input } from '@chakra-ui/react';
+import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import { IoSearch } from 'react-icons/io5';
 
 export interface SearchCountryProps {
   setSearchQuery: (query: string) => void;
@@ -6,11 +7,15 @@ export interface SearchCountryProps {
 
 const SearchCountry: React.FC<SearchCountryProps> = ({ setSearchQuery }) => {
   return (
-    <Input
-      placeholder='Search for a country'
-      width='400px'
-      onChange={e => setSearchQuery(e.target.value)}
-    />
+    <InputGroup width='400px'>
+      <InputLeftElement pointerEvents='none'>
+        <IoSearch color='gray.300' />
+      </InputLeftElement>
+      <Input
+        placeholder='Search for a country...'
+        onChange={e => setSearchQuery(e.target.value)}
+      />
+    </InputGroup>
   );
 };
 

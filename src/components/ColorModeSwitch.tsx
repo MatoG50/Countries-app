@@ -5,7 +5,7 @@ const ColorModeSwitch = () => {
   const { toggleColorMode, colorMode } = useColorMode();
 
   return (
-    <HStack onClick={toggleColorMode} className='switch'>
+    <HStack onClick={toggleColorMode} cursor='pointer'>
       {colorMode === 'dark' ? (
         <IoMoonSharp style={{ color: 'white' }} />
       ) : (

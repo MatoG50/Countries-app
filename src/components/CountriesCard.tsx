@@ -54,20 +54,33 @@ const CountriesCard: React.FC<CountriesCardProps> = ({
 
   return (
     <>
-      <div className='cards'>
+      <Flex
+        flexWrap='wrap'
+        width='90%'
+        gap='70px'
+        marginRight='auto'
+        marginLeft='auto'
+        justifyContent='space-between'
+      >
         {filteredCountries?.map((res: Country) => (
           <Card
             key={res.cca2}
+            fontSize={['sm', 'md', 'lg']}
             // maxW='sm'
-            className='card'
             padding='0'
+            overflow='hidden'
+            width='288px'
+            height='330px'
             borderRadius='lg'
+            ml={{ base: 'auto', md: 0 }} // Margin left set to auto on small screens and 0 on medium screens and above
+            mr={{ base: 'auto', md: 0 }}
           >
             <Link to={`/country/${res.cca2}`}>
               <Image
+                height='160px'
+                width='288px'
                 src={res.flags.png}
                 alt={res.flags.alt}
-                className='image'
               />
               <CardBody>
                 <Stack>
@@ -89,7 +102,7 @@ const CountriesCard: React.FC<CountriesCardProps> = ({
             </Link>
           </Card>
         ))}
-      </div>
+      </Flex>
     </>
   );
 };
