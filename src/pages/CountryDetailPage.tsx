@@ -18,7 +18,10 @@ const CountryDetailPage = () => {
 
   if (isLoading) {
     return (
-      <div className='column'>
+      <div
+        className='column'
+        style={{ width: '90%', marginLeft: 'auto', marginRight: 'auto' }}
+      >
         <Skeleton
           padding='0'
           marginRight='30px'
